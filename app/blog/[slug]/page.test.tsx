@@ -6,6 +6,7 @@ import "@testing-library/jest-dom";
 import Page from "./page";
 
 it("App Router: Works with dynamic route segments", () => {
-  render(<Page params={{ slug: "Test" }} />);
+  const mockParams = Promise.resolve({ slug: "test-slug" });
+  render(<Page params={mockParams} />);
   expect(screen.getByRole("heading")).toHaveTextContent("Slug: Test");
 });
